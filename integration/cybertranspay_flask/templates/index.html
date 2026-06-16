@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CyberTransPay — Demo</title>
+    <style>body{font-family:Arial,Helvetica,sans-serif;padding:20px}label{display:block;margin-top:8px}</style>
+  </head>
+  <body>
+    <h2>CyberTransPay — Demo</h2>
+    <div>
+      <label>From asset: <input id="from_asset" value="USDT"></label>
+      <label>To asset: <input id="to_asset" value="EUR"></label>
+      <label>Amount: <input id="amount" value="1000" type="number"></label>
+      <label>Preference: <select id="preference"><option value="cheapest">cheapest</option><option value="fastest">fastest</option></select></label>
+      <button id="quoteBtn">Get Quote</button>
+    </div>
+
+    <h3>Quote</h3>
+    <pre id="quoteOut">—</pre>
+
+    <h3>Transfer</h3>
+    <div>
+      <label>Quote ID: <input id="quote_id"></label>
+      <label>Route ID: <input id="route_id"></label>
+      <button id="transferBtn">Create Transfer</button>
+    </div>
+    <pre id="transferOut">—</pre>
+
+    <h3>Check Status</h3>
+    <div>
+      <label>Transfer ID: <input id="check_id"></label>
+      <button id="checkBtn">Check</button>
+    </div>
+    <pre id="checkOut">—</pre>
+
+    <script>
+      const qBtn = document.getElementById('quoteBtn');
+      const qOut = document.getElementById('quoteOut');
+      qBtn.onclick = async () => {
+        qOut.textContent = 'Loading...';
+        const body = {
+          from_asset: document.getElementById('from_asset').value,
+          to_asset: document.getElementById('to_asset').value,
+          amount: Number(document.getElementById('amount').value),
+          preference: document.getElementById('preference').value
+        };
+        const r = await fetch('/api/quote', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+        const j = await r.json();
+        qOut.textContent = JSON.stringify(j, null, 2);
+        if (j.quote_id) {
+          document.getElementById('quote_id').value = j.quote_id || '';
+          if (j.routes && j.routes.length) document.getElementById('route_id').value = j.routes[0].route_id || '';
+        }
+      };
+
+      const tBtn = document.getElementById('transferBtn');
+      const tOut = document.getElementById('transferOut');
+      tBtn.onclick = async () => {
+        tOut.textContent = 'Creating...';
+        const body = { quote_id: document.getElementById('quote_id').value, route_id: document.getElementById('route_id').value };
+        const r = await fetch('/api/transfer', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+        const j = await r.json();
+        tOut.textContent = JSON.stringify(j, null, 2);
+        if (j.transfer_id) document.getElementById('check_id').value = j.transfer_id;
+      };
+
+      const cBtn = document.getElementById('checkBtn');
+      const cOut = document.getElementById('checkOut');
+      cBtn.onclick = async () => {
+        cOut.textContent = 'Checking...';
+        const id = document.getElementById('check_id').value;
+        const r = await fetch('/api/transfer/' + encodeURIComponent(id));
+        const j = await r.json();
+        cOut.textContent = JSON.stringify(j, null, 2);
+      };
+    </script>
+  </body>
+</html>
