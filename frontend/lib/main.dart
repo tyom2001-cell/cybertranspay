@@ -29,14 +29,14 @@ class CyberTransPayApp extends StatelessWidget {
         useMaterial3: true,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Colors.white.withOpacity(0.06),
+          fillColor: Colors.white.withValues(alpha: 0.06),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18),
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.12)),
+            borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18),
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.12)),
+            borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18),

@@ -406,7 +406,7 @@ class _QuoteScreenState extends State<QuoteScreen> {
                   ),
                   const SizedBox(height: 12),
                   DropdownButtonFormField<String>(
-                    value: _preference,
+                    initialValue: _preference,
                     decoration: const InputDecoration(
                       labelText: 'Приоритет',
                       prefixIcon: Icon(Icons.tune),
@@ -542,12 +542,12 @@ class _HeroHeader extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: statusColor.withOpacity(0.14),
+            color: statusColor.withValues(alpha: 0.14),
             borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: statusColor.withOpacity(0.55)),
+            border: Border.all(color: statusColor.withValues(alpha: 0.55)),
             boxShadow: [
               BoxShadow(
-                color: statusColor.withOpacity(0.3),
+                color: statusColor.withValues(alpha: 0.3),
                 blurRadius: 18,
               ),
             ],
@@ -576,12 +576,12 @@ class _GlassPanel extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.07),
+        color: Colors.white.withValues(alpha: 0.07),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.13)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.13)),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF64D8FF).withOpacity(0.08),
+            color: const Color(0xFF64D8FF).withValues(alpha: 0.08),
             blurRadius: 28,
             offset: const Offset(0, 16),
           ),
@@ -637,7 +637,7 @@ class _FlatEarthSelector extends StatelessWidget {
                   child: Text(
                     'Развертка Земли',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: Colors.white.withOpacity(0.82),
+                          color: Colors.white.withValues(alpha: 0.82),
                           letterSpacing: 0.4,
                         ),
                   ),
@@ -672,7 +672,7 @@ class _FlatEarthPainter extends CustomPainter {
     );
 
     final gridPaint = Paint()
-      ..color = Colors.white.withOpacity(0.06)
+      ..color = Colors.white.withValues(alpha: 0.06)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
     for (var x = 0.12; x < 1; x += 0.18) {
@@ -691,10 +691,10 @@ class _FlatEarthPainter extends CustomPainter {
     }
 
     final landPaint = Paint()
-      ..color = const Color(0xFF263A5D).withOpacity(0.88)
+      ..color = const Color(0xFF263A5D).withValues(alpha: 0.88)
       ..style = PaintingStyle.fill;
     final glowPaint = Paint()
-      ..color = const Color(0xFF58D7FF).withOpacity(0.14)
+      ..color = const Color(0xFF58D7FF).withValues(alpha: 0.14)
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12);
 
     for (final path in _landPaths(size)) {
@@ -714,7 +714,7 @@ class _FlatEarthPainter extends CustomPainter {
         ..quadraticBezierTo(control.dx, control.dy, end.dx, end.dy);
 
       final routeGlow = Paint()
-        ..color = const Color(0xFF71F6FF).withOpacity(0.32)
+        ..color = const Color(0xFF71F6FF).withValues(alpha: 0.32)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 8
         ..strokeCap = StrokeCap.round
@@ -809,7 +809,7 @@ class _CountryMarker extends StatelessWidget {
         ? const Color(0xFF68F8FF)
         : selectedAsTo
             ? const Color(0xFFA985FF)
-            : Colors.white.withOpacity(0.76);
+            : Colors.white.withValues(alpha: 0.76);
 
     return Tooltip(
       message: country.label,
@@ -821,13 +821,13 @@ class _CountryMarker extends StatelessWidget {
           height: selected ? 54 : 48,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: const Color(0xFF111936).withOpacity(selected ? 0.94 : 0.76),
+            color: const Color(0xFF111936).withValues(alpha: selected ? 0.94 : 0.76),
             shape: BoxShape.circle,
             border: Border.all(color: color, width: selected ? 1.7 : 1),
             boxShadow: [
               if (selected)
                 BoxShadow(
-                  color: color.withOpacity(0.55),
+                  color: color.withValues(alpha: 0.55),
                   blurRadius: 20,
                   spreadRadius: 1,
                 ),
@@ -870,7 +870,7 @@ class _CountryDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      value: value,
+      initialValue: value,
       isExpanded: true,
       decoration: InputDecoration(
         labelText: label,
@@ -904,9 +904,9 @@ class _StatusBanner extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.12),
+        color: color.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: color.withOpacity(0.28)),
+        border: Border.all(color: color.withValues(alpha: 0.28)),
       ),
       child: Text(
         message,
@@ -976,18 +976,18 @@ class _RouteCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.white.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(22),
         border: Border.all(
           color: selected
               ? const Color(0xFF83F5FF)
-              : Colors.white.withOpacity(0.12),
+              : Colors.white.withValues(alpha: 0.12),
           width: selected ? 1.6 : 1,
         ),
         boxShadow: [
           if (selected)
             BoxShadow(
-              color: const Color(0xFF83F5FF).withOpacity(0.18),
+              color: const Color(0xFF83F5FF).withValues(alpha: 0.18),
               blurRadius: 22,
             ),
         ],
@@ -1185,12 +1185,12 @@ class _TransferReceipt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF17342F).withOpacity(0.72),
+        color: const Color(0xFF17342F).withValues(alpha: 0.72),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: const Color(0xFF5EF7C8).withOpacity(0.35)),
+        border: Border.all(color: const Color(0xFF5EF7C8).withValues(alpha: 0.35)),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF5EF7C8).withOpacity(0.12),
+            color: const Color(0xFF5EF7C8).withValues(alpha: 0.12),
             blurRadius: 24,
           ),
         ],

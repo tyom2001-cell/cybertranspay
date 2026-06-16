@@ -324,10 +324,10 @@ class _ProfilePanel extends StatelessWidget {
                 width: 44,
                 height: 44,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF5EF7C8).withOpacity(0.14),
+                  color: const Color(0xFF5EF7C8).withValues(alpha: 0.14),
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: const Color(0xFF5EF7C8).withOpacity(0.45),
+                    color: const Color(0xFF5EF7C8).withValues(alpha: 0.45),
                   ),
                 ),
                 child: const Icon(Icons.person, color: Color(0xFF5EF7C8)),
@@ -497,9 +497,9 @@ class _SecurityBanner extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.12),
+        color: color.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: color.withOpacity(0.32)),
+        border: Border.all(color: color.withValues(alpha: 0.32)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -538,9 +538,9 @@ class _GlassCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.07),
+        color: Colors.white.withValues(alpha: 0.07),
         borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.13)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.13)),
       ),
       child: child,
     );

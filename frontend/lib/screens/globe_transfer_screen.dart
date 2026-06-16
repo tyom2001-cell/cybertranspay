@@ -615,7 +615,7 @@ class _GlobePainter extends CustomPainter {
     canvas.drawCircle(center, radius, globePaint);
 
     final gridPaint = Paint()
-      ..color = Colors.white.withOpacity(0.16)
+      ..color = Colors.white.withValues(alpha: 0.16)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1;
     for (final scale in [0.35, 0.65, 0.9]) {
@@ -657,7 +657,7 @@ class _GlobePainter extends CustomPainter {
     canvas.drawPath(
       path,
       Paint()
-        ..color = Colors.amber.withOpacity(0.3)
+        ..color = Colors.amber.withValues(alpha: 0.3)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 5
         ..strokeCap = StrokeCap.round,
@@ -733,7 +733,7 @@ class _ProgressCard extends StatelessWidget {
             LinearProgressIndicator(
               value: progress.percent,
               color: progress.color,
-              backgroundColor: Colors.white.withOpacity(0.45),
+              backgroundColor: Colors.white.withValues(alpha: 0.45),
               minHeight: 8,
             ),
             const SizedBox(height: 10),
@@ -885,7 +885,7 @@ class _FromDialogState extends State<_FromDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           DropdownButtonFormField<TransferCountry>(
-            value: _country,
+            initialValue: _country,
             decoration: const InputDecoration(labelText: 'Страна'),
             items: transferCountries
                 .map((country) => DropdownMenuItem(
@@ -903,7 +903,7 @@ class _FromDialogState extends State<_FromDialog> {
           ),
           const SizedBox(height: 12),
           DropdownButtonFormField<String>(
-            value: _currency,
+            initialValue: _currency,
             decoration: const InputDecoration(labelText: 'Валюта'),
             items: supportedTransferCurrencies
                 .map((currency) => DropdownMenuItem(
@@ -983,7 +983,7 @@ class _ToDialogState extends State<_ToDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           DropdownButtonFormField<TransferCountry>(
-            value: _country,
+            initialValue: _country,
             decoration: const InputDecoration(labelText: 'Страна'),
             items: transferCountries
                 .map((country) => DropdownMenuItem(
@@ -1001,7 +1001,7 @@ class _ToDialogState extends State<_ToDialog> {
           ),
           const SizedBox(height: 12),
           DropdownButtonFormField<String>(
-            value: _currency,
+            initialValue: _currency,
             decoration: const InputDecoration(labelText: 'Валюта'),
             items: supportedTransferCurrencies
                 .map((currency) => DropdownMenuItem(
@@ -1046,8 +1046,8 @@ class SuccessAuroraOverlay extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.greenAccent.withOpacity(0.26),
-                Colors.lightBlueAccent.withOpacity(0.18),
+                Colors.greenAccent.withValues(alpha: 0.26),
+                Colors.lightBlueAccent.withValues(alpha: 0.18),
                 Colors.transparent,
               ],
             ),
@@ -1056,7 +1056,7 @@ class SuccessAuroraOverlay extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.35),
+                color: Colors.black.withValues(alpha: 0.35),
                 borderRadius: BorderRadius.circular(999),
               ),
               child: const Text(
