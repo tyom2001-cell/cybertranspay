@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ======================
 # General
 # ======================
@@ -72,3 +73,9 @@ __pycache__/
 *.bak
 *.orig
 *.rej
+=======
+notebooks/data
+notebooks/cifar_net.pth
+.ipynb_checkpoints/
+.env
+>>>>>>> 2b2bbea (Add CyberTransPay Flask proxy example with local mock and README instructions)

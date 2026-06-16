@@ -30,3 +30,35 @@
 
 **Лицензия кода:** Apache 2.0  
 **Торговая марка:** Принадлежит NovykovArt-org (все права защищены)
+
+## CyberTransPay Flask mock test
+
+This workspace includes a CyberTransPay Flask proxy example under `integration/cybertranspay_flask` and a local mock server for testing without a real CyberTransPay backend.
+
+To run the mock locally:
+
+```bash
+cd integration/cybertranspay_flask
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+python mock_server.py
+```
+
+In a second terminal, start the proxy app against the local mock backend:
+
+```bash
+cd integration/cybertranspay_flask
+. .venv/bin/activate
+CYBER_API_BASE=http://127.0.0.1:8080 CYBER_API_KEY=FAKEKEY FLASK_RUN_HOST=127.0.0.1 FLASK_RUN_PORT=5001 python app.py
+```
+
+Then open `http://127.0.0.1:5001` in your browser or test the endpoints with `curl`:
+
+```bash
+curl http://127.0.0.1:5001/api/assets
+curl -X POST http://127.0.0.1:5001/api/quote -H 'Content-Type: application/json' -d '{"from":"USDT","to":"EUR","amount":100}'
+curl -X POST http://127.0.0.1:5001/api/transfer -H 'Content-Type: application/json' -d '{"quote_id":"abc","recipient":"test"}'
+```
+
+This lets you verify the Flask proxy flow without a real CyberTransPay API key.
