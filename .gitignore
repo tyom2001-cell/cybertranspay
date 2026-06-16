@@ -65,6 +65,13 @@ smart-contracts/node_modules/
 smart-contracts/.env
 
 # ======================
+# Notebooks
+# ======================
+notebooks/data
+notebooks/cifar_net.pth
+.ipynb_checkpoints/
+
+# ======================
 # OS & Misc
 # ======================
 *.pyc
