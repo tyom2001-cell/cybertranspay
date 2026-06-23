@@ -1,20 +1,34 @@
 import 'package:cybertranspay/screens/globe_transfer_screen.dart';
 import 'package:cybertranspay/screens/account_screen.dart';
+import 'package:cybertranspay/screens/marketplace_screen.dart';
+import 'package:cybertranspay/screens/orders_screen.dart';
+import 'package:cybertranspay/screens/seller_dashboard_screen.dart';
 import 'package:cybertranspay/screens/quote_screen.dart';
 import 'package:cybertranspay/services/api_client.dart';
 import 'package:cybertranspay/services/auth_client.dart';
+import 'package:cybertranspay/services/marketplace_client.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(CyberTransPayApp(api: ApiClient(), auth: AuthClient()));
+  runApp(CyberTransPayApp(
+    api: ApiClient(),
+    auth: AuthClient(),
+    marketplace: MarketplaceClient(),
+  ));
 }
 
 class CyberTransPayApp extends StatelessWidget {
-  CyberTransPayApp({super.key, required this.api, AuthClient? auth})
-      : auth = auth ?? AuthClient();
+  CyberTransPayApp({
+    super.key,
+    required this.api,
+    AuthClient? auth,
+    MarketplaceClient? marketplace,
+  })  : auth = auth ?? AuthClient(),
+        marketplace = marketplace ?? MarketplaceClient();
 
   final ApiClient api;
   final AuthClient auth;
+  final MarketplaceClient marketplace;
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +58,22 @@ class CyberTransPayApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomeShell(api: api, auth: auth),
+      home: HomeShell(api: api, auth: auth, marketplace: marketplace),
     );
   }
 }
 
 class HomeShell extends StatefulWidget {
-  const HomeShell({super.key, required this.api, required this.auth});
+  const HomeShell({
+    super.key,
+    required this.api,
+    required this.auth,
+    required this.marketplace,
+  });
 
   final ApiClient api;
   final AuthClient auth;
+  final MarketplaceClient marketplace;
 
   @override
   State<HomeShell> createState() => _HomeShellState();
@@ -62,11 +82,27 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _index = 0;
 
+  // Placeholder buyer/seller IDs — in production these come from auth.
+  static const String _demoUserId = 'demo-user-001';
+
   @override
   Widget build(BuildContext context) {
     final pages = [
       GlobeTransferScreen(api: widget.api),
       QuoteScreen(api: widget.api),
+      MarketplaceScreen(
+        marketplace: widget.marketplace,
+        api: widget.api,
+        buyerId: _demoUserId,
+      ),
+      OrdersScreen(
+        marketplace: widget.marketplace,
+        buyerId: _demoUserId,
+      ),
+      SellerDashboardScreen(
+        marketplace: widget.marketplace,
+        sellerId: _demoUserId,
+      ),
       AccountScreen(auth: widget.auth),
     ];
 
@@ -78,6 +114,12 @@ class _HomeShellState extends State<HomeShell> {
         destinations: const [
           NavigationDestination(icon: Icon(Icons.public), label: 'Глобус'),
           NavigationDestination(icon: Icon(Icons.route), label: 'Маршруты'),
+          NavigationDestination(
+              icon: Icon(Icons.store), label: 'Магазин'),
+          NavigationDestination(
+              icon: Icon(Icons.receipt_long), label: 'Заказы'),
+          NavigationDestination(
+              icon: Icon(Icons.storefront), label: 'Продавец'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Кабинет'),
         ],
       ),
