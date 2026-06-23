@@ -60,6 +60,29 @@ module "gke" {
   depends_on = [module.project_apis]
 }
 
+module "cloud_sql" {
+  source     = "./modules/cloud_sql"
+  project_id = var.project_id
+  region     = var.region
+
+  instance_name     = var.marketplace_db_instance_name
+  tier              = var.marketplace_db_tier
+  availability_type = var.marketplace_db_ha ? "REGIONAL" : "ZONAL"
+  backup_enabled    = var.marketplace_db_backup
+
+  depends_on = [module.project_apis]
+}
+
+module "cloud_storage" {
+  source     = "./modules/cloud_storage"
+  project_id = var.project_id
+  region     = var.region
+
+  cdn_enabled = var.marketplace_cdn_enabled
+
+  depends_on = [module.project_apis]
+}
+
 # Disabled until GitHub App installation ID is configured.
 # module "developer_connect" {
 #   source                     = "./modules/developer_connect"

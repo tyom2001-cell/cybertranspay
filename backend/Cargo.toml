@@ -1,5 +1,5 @@
 [workspace]
-members = ["routing-engine"]
+members = ["routing-engine", "marketplace"]
 resolver = "2"
 
 [workspace.package]
