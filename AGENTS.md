@@ -107,4 +107,13 @@ flutter run \
 ### Known pre-existing issues
 
 No known always-failing local checks are currently documented. If a check fails, treat it as actionable unless a newer note in this file says otherwise.
+
+### Development conventions
+
+These conventions apply to all agents working in this repository:
+
+- **Rust integration tests**: Always write integration tests for new Rust HTTP endpoints using the existing `tests/` pattern (e.g. `backend/marketplace/tests/`, `backend/routing-engine/tests/`). Do not add an endpoint without a corresponding test file.
+- **Marketplace endpoint structure**: New marketplace endpoints must follow the handler/router pattern in `backend/marketplace/src/api.rs`. Do not invent a different structure.
+- **Terraform validation gate**: Never create a PR that includes Terraform changes unless `terraform validate` passes first. Run: `cd terraform && terraform init -backend=false && terraform validate`.
+- **Incremental PRs**: Prefer small, reviewable PRs over single-session mega-changes. For large features, propose a phased plan and implement across multiple focused PRs with natural review checkpoints.
 main
