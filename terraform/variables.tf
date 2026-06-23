@@ -44,3 +44,41 @@ variable "create_auth_secret" {
   type        = bool
   default     = true
 }
+
+# ── Marketplace ───────────────────────────────────────────────────────────────
+
+variable "marketplace_db_instance_name" {
+  description = "Cloud SQL instance name for the marketplace PostgreSQL database"
+  type        = string
+  default     = "marketplace-db"
+}
+
+variable "marketplace_db_tier" {
+  description = "Cloud SQL machine type for the marketplace database"
+  type        = string
+  default     = "db-f1-micro"
+}
+
+variable "marketplace_db_ha" {
+  description = "Enable high-availability (REGIONAL) for the marketplace database"
+  type        = bool
+  default     = false
+}
+
+variable "marketplace_db_backup" {
+  description = "Enable automated backups for the marketplace database"
+  type        = bool
+  default     = true
+}
+
+variable "marketplace_cdn_enabled" {
+  description = "Enable Cloud CDN for the marketplace product images bucket"
+  type        = bool
+  default     = true
+}
+
+variable "marketplace_image_tag" {
+  description = "Docker image tag for the marketplace service on Cloud Run"
+  type        = string
+  default     = "latest"
+}
