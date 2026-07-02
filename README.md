@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Pre--MVP-orange.svg)
-![Organization](https://img.shields.io/badge/Org-NovykovArt--org-blue.svg)
+![Owner](https://img.shields.io/badge/Owner-tyom2001--cell-blue.svg)
 
 **Глобальная платформа мгновенных трансграничных платежей (crypto ↔ fiat) в одном клике.**
 
@@ -12,8 +12,7 @@
 - Mass payments и recurring payments  
 - Полный compliance (KYC/AML, Travel Rule, санкции)
 
-**Организация:** [NovykovArt-org](https://github.com/NovykovArt-org)  
-**Владелец:** NovykovArt-org
+**Владелец:** [tyom2001-cell](https://github.com/tyom2001-cell)
 
 ---
 
@@ -29,7 +28,7 @@
 **Деплой в GCP:** [docs/DEPLOY_GCP.md](docs/DEPLOY_GCP.md)
 
 **Лицензия кода:** Apache 2.0  
-**Торговая марка:** Принадлежит NovykovArt-org (все права защищены)
+**Торговая марка:** Принадлежит tyom2001-cell (все права защищены)
 
 ## CyberTransPay Flask mock test
 
