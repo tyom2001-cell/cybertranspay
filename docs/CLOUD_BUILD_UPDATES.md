@@ -17,7 +17,7 @@ scripts\grant-cloudbuild-permissions.cmd
 
 1. Открой: https://console.cloud.google.com/cloud-build/triggers/connect?project=cybertranspay  
 2. Выбери **GitHub** → авторизуйся  
-3. Репозиторий: **`NovykovArt-org/cybertranspay`**
+3. Репозиторий: **`tyom2001-cell/cybertranspay`**
 
 ### Шаг 3 — Создать trigger
 
@@ -114,7 +114,7 @@ https://console.cloud.google.com/cloud-build/triggers?project=cybertranspay
 Или CLI (после подключения GitHub):
 
 ```cmd
-gcloud builds triggers create github --name=routing-engine-main --repo-name=cybertranspay --repo-owner=NovykovArt-org --branch-pattern=^main$ --build-config=cloudbuild.yaml --region=europe-west1 --project=cybertranspay
+gcloud builds triggers create github --name=routing-engine-main --repo-name=cybertranspay --repo-owner=tyom2001-cell --branch-pattern=^main$ --build-config=cloudbuild.yaml --region=europe-west1 --project=cybertranspay
 ```
 
 ---
