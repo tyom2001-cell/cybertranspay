@@ -5,7 +5,7 @@ set -euo pipefail
 PROJECT_ID="${PROJECT_ID:-cybertranspay}"
 REGION="${REGION:-europe-west1}"
 TRIGGER_NAME="${TRIGGER_NAME:-routing-engine-main}"
-REPO_OWNER="${REPO_OWNER:-NovykovArt-org}"
+REPO_OWNER="${REPO_OWNER:-tyom2001-cell}"
 REPO_NAME="${REPO_NAME:-cybertranspay}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 

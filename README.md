@@ -12,8 +12,8 @@
 - Mass payments и recurring payments  
 - Полный compliance (KYC/AML, Travel Rule, санкции)
 
-**Организация:** [NovykovArt-org](https://github.com/NovykovArt-org)  
-**Владелец:** NovykovArt-org
+**Организация:** [tyom2001-cell](https://github.com/tyom2001-cell)  
+**Владелец:** tyom2001-cell
 
 ---
 
@@ -29,7 +29,7 @@
 **Деплой в GCP:** [docs/DEPLOY_GCP.md](docs/DEPLOY_GCP.md)
 
 **Лицензия кода:** Apache 2.0  
-**Торговая марка:** Принадлежит NovykovArt-org (все права защищены)
+**Торговая марка:** Принадлежит tyom2001-cell (все права защищены)
 
 ## CyberTransPay Flask mock test
 
