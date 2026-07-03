@@ -7,7 +7,7 @@ use thiserror::Error;
 use tokio::sync::RwLock;
 
 const CACHE_TTL: Duration = Duration::from_secs(60);
-const USER_AGENT: &str = "CyberTransPay-routing-engine/0.1.0 (+https://github.com/NovykovArt-org/cybertranspay)";
+const USER_AGENT: &str = "CyberTransPay-routing-engine/0.1.0 (+https://github.com/tyom2001-cell/cybertranspay)";
 
 #[derive(Debug, Clone)]
 pub struct SpotRate {

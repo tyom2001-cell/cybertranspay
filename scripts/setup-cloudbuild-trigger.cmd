@@ -6,7 +6,7 @@ REM   https://console.cloud.google.com/cloud-build/triggers/connect?project=cybe
 set PROJECT_ID=cybertranspay
 set REGION=europe-west1
 set TRIGGER_NAME=routing-engine-main
-set REPO_OWNER=NovykovArt-org
+set REPO_OWNER=tyom2001-cell
 set REPO_NAME=cybertranspay
 
 echo === Cloud Build trigger setup ===
