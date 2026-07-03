@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Pre--MVP-orange.svg)
-![Organization](https://img.shields.io/badge/Org-NovykovArt--org-blue.svg)
+![Owner](https://img.shields.io/badge/Owner-tyom2001--cell-blue.svg)
 
 **Глобальная платформа мгновенных трансграничных платежей (crypto ↔ fiat) в одном клике.**
 
@@ -12,8 +12,8 @@
 - Mass payments и recurring payments  
 - Полный compliance (KYC/AML, Travel Rule, санкции)
 
-**Организация:** [tyom2001-cell](https://github.com/tyom2001-cell)  
-**Владелец:** tyom2001-cell
+**Репозиторий:** [tyom2001-cell/cybertranspay](https://github.com/tyom2001-cell/cybertranspay)  
+**Владелец:** [tyom2001-cell](https://github.com/tyom2001-cell)
 
 ---
 
